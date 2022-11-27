@@ -1,4 +1,4 @@
-export class OrderProduct {
+export interface OrderProduct {
     id: number;
     orderId: number;
     productId: number;

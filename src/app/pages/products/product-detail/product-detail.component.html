@@ -1,1 +1,58 @@
-<p>product-detail works!</p>
+<div id="createForm" class="container border rounded-1 p-5 mt-5 bg-light bg-gradient">
+
+    <div >
+        <h1>Editar Produto</h1>
+        
+        <form class="col-6" (ngSubmit)="onSubmit()" #productForm="ngForm">
+          
+          <div class="form-group mt-3">
+            <label for="name">Nome</label>
+            <input type="text" class="form-control" id="name"
+                   required
+                   [(ngModel)]="product.name" name="name"
+                   #name="ngModel">
+            <div [hidden]="name.valid || name.pristine"
+                 class="alert alert-danger">
+              Nome é obrigatório!
+            </div>
+          </div>
+    
+          <div class="form-group mt-3">
+            <label for="description">Descrição</label>
+            <input type="text" class="form-control" id="description"
+                   [(ngModel)]="product.description" name="description">
+          </div>
+  
+          <div class="form-group mt-3">
+            <label for="price">Preço</label>
+            <input type="number" class="form-control" id="price"
+                   [(ngModel)]="product.price" name="price">
+          </div>
+  
+          <div class="form-group mt-3">
+            <label for="quantity">Quantidade</label>
+            <input type="number" class="form-control" id="quantity"
+                   [(ngModel)]="product.quantity" name="quantity">
+          </div>        
+    
+          <div class="form-group mt-3">
+            <label for="category">Categoria</label>
+            <select class="form-control" id="power"
+                    required
+                    [(ngModel)]="product.category" name="category"
+                    #category="ngModel">
+              <option *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
+            </select>
+            <div [hidden]="category.valid || category.pristine" class="alert alert-danger">
+              Categoria é obrigatória!
+            </div>
+          </div>
+  
+          <div class="mt-5">
+            <button type="submit" class="btn btn-success me-3">Editar</button>
+            <button class="btn btn-secondary" (click)="redirectToList()">Cancelar</button>            
+          </div>
+          
+        </form>
+      </div>
+    </div>

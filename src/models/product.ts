@@ -1,7 +1,9 @@
-export class Product {
+export interface Product {
     id: number;
     name: string;
     description: string;    
+    price: number;
     quantity: number;
-    isActive: boolean;
+    category: string;
+    status: boolean;
 }

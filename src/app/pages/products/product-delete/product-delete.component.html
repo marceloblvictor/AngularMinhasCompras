@@ -1,0 +1,15 @@
+<div *ngIf="!submitted" class="container border rounded-1 p-5 mt-5 bg-light bg-gradient"> 
+    <h2>ATENÇÃO!</h2>
+    <p>Deseja excluir o produto?</p>
+
+    <form (ngSubmit)="onSubmit()">
+        <button type="submit" class="btn btn-danger me-3">DELETAR</button>            
+        <button class="btn btn-secondary" (click)="redirectToList()">Cancelar</button>
+    </form>
+</div>
+
+<div *ngIf="submitted" class="container border rounded-1 p-5 mt-5 bg-light bg-gradient"> 
+    <h2>SUCESSO</h2>
+    <p>Produto excluído com sucesso</p>
+    <button class="btn btn-secondary" (click)="redirectToList()">OK</button>
+</div>
