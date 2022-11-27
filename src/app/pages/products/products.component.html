@@ -26,9 +26,11 @@
         </div>
     </div>
         
-    <a class="btn btn-primary mt-5" routerLink="/product-add" routerLinkActive="active" ariaCurrentWhenActive="page">Novo Produto</a>
+    <a class="btn btn-primary mt-5" routerLink="/product-add" routerLinkActive="active" ariaCurrentWhenActive="page" param>Novo Produto</a>
 </div>
 
-
-    
-
+<a class="btn btn-success position-fixed rounded-4 end-0 bottom-0" 
+    routerLink="/orders" 
+    routerLinkActive="active" 
+    ariaCurrentWhenActive="page"
+    [hidden]="products.length == 0">Finalizar Compra</a>

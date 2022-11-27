@@ -46,11 +46,11 @@
             <div [hidden]="category.valid || category.pristine" class="alert alert-danger">
               Categoria é obrigatória!
             </div>
-          </div>
+          </div>           
   
           <div class="mt-5">
-            <button type="submit" class="btn btn-success me-3">Editar</button>
-            <button class="btn btn-secondary" (click)="redirectToList()">Cancelar</button>            
+            <button type="submit" class="btn btn-success me-3 mt-2" [disabled]="!productForm.form.valid">Editar</button>
+            <button class="btn btn-secondary mt-2" (click)="redirectToList()">Cancelar</button>            
           </div>
           
         </form>

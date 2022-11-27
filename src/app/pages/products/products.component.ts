@@ -13,13 +13,6 @@ import { catchError, retry } from 'rxjs/operators';
 
 export class ProductsComponent implements OnInit {  
 
-  deleteProduct(id : number){
-    if (confirm("Deseja apagar o item?")){
-      this.products = this.products.filter(p => p.id != id);
-      alert("Produto deletado com sucesso!");
-    }
-  }
-
   products : Product[] = [];
 
   constructor(private client: HttpClient) { }

@@ -1,0 +1,49 @@
+<div class="container border rounded-1 p-5 mt-5 bg-light bg-gradient">
+    <h2 class="mb-5">Cesta de Compras:</h2>
+
+    <ul>
+        <li class="mb-5" *ngFor="let product of products">
+            <h3> 
+                {{ product.name }}
+            </h3>
+            <p *ngIf="product.description">
+                Descrição: {{ product.description }}        
+            </p>
+            <p *ngIf="product.price">
+                Preço: {{ product.price }}        
+            </p>
+            <p *ngIf="product.quantity">
+                Quantidade: {{ product.quantity }}        
+            </p>
+            <p class="text-end">
+               R{{product.quantity * product.price | currency }}
+            </p>
+            <hr>
+        </li>
+    </ul>
+
+    <h2>Total: R{{ totalAmount | currency }}</h2>
+
+    <div >
+        <form class="col-6" (ngSubmit)="onSubmit()" #customerForm="ngForm">
+          
+          <div class="form-group mt-4">
+            <label for="name">Email do Cliente:</label>
+            <input type="text" class="form-control mt-2 mb-2" id="customerName"
+                   required
+                   name="name"
+                   [(ngModel)]="customerName"
+                   placeholder="Insira aqui...">
+          </div>
+
+          <div [hidden]="userExists" class="">
+            <p>Cliente inexistente!</p>
+          </div>
+
+          <button type="submit" class="btn btn-success me-3 mt-3">Confirmar</button>
+          <a class="btn btn-secondary mt-3" routerLink="/products" routerLinkActive="active" ariaCurrentWhenActive="page">Cancelar</a>
+
+          </form>
+    </div>
+    
+</div>
